@@ -12,15 +12,40 @@ Pytorch Version: 1.7.1 CUDA 11.2
 Trained on a NVIDIA GeForce RTX 3090
 
 ## Installation
-1. Create and activate a new environment.
-```
-conda create -n idcard python=3.9.1
-source activate idcard
-```
-2. Install Dependencies.
-```
-pip install -r requirements.txt
-```
+
+1. Crear y activar el entorno
+
+   ```bash
+   conda create -n idcard python=3.12
+   conda activate idcard
+   ```
+
+2. Preparar herramientas de construcción
+
+   ```bash
+   pip install --upgrade pip setuptools wheel
+   pip install numpy cython
+   ```
+
+3. Instalar PyTorch con MPS
+
+   ```bash
+   conda install pytorch torchvision torchaudio -c pytorch -c apple
+   # o con pip:
+   # pip install torch torchvision torchaudio
+   ```
+
+4. Instalar el resto
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. Tesseract OCR (sistema)
+
+   ```bash
+   brew install tesseract
+   ```
 
 ## Download and Prepare Dataset
 Download the image files (image and ground_truth).  
@@ -75,5 +100,3 @@ Intersection over Unit:
 
 Pipeline Example:  
 ![Pipeline](assets/pipeline.png "Workflow Pipeline")
-
-

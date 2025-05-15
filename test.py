@@ -47,7 +47,7 @@ def main():
             print('Load model... ', MODEL_FILE)
             model = models.UNet(n_channels=1, n_classes=1)
 
-            checkpoint = torch.load(pathlib.Path(MODEL_FILE))
+            checkpoint = torch.load(pathlib.Path(MODEL_FILE), map_location=device)
             model.load_state_dict(checkpoint)
             model.to(device)
             model.eval()
